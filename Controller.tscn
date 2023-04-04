@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgnrmccdnwgon"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_xu6mg"]
+[ext_resource type="Script" path="res://Analog.gd" id="2_6ob42"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="3_17vdq"]
+[ext_resource type="Texture2D" uid="uid://x0bffljpsbx5" path="res://icon.svg" id="4_4yt1v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh76r"]
+size = Vector2(64, 64)
+
+[node name="Controller" type="Node2D"]
+script = ExtResource("1_xu6mg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Analog" type="Node2D" parent="."]
+script = ExtResource("2_6ob42")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("3_17vdq")
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_4yt1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_hh76r")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
