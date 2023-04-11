@@ -3,8 +3,8 @@ extends Node2D
 @onready var Analog = get_child(1)
 @onready var CharBody = get_child(2)
 @onready var Camera = get_child(0)
-var controlsFollows = true #The controls will follow the player
-var cameraFollows = true #The camera will follow the player but not the controls
+var controlsFollows = true 
+var cameraFollows = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,12 +16,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	CharBody.move_and_collide(delta * -Analog.directionValue * 2.5)
-#The camera and controller follows 
-	if controlsFollows == true:
+	
+	if controlsFollows == true: #The camera will follow the player
 		Analog.position = Camera.position
 	
-	if cameraFollows == true: 
+	if cameraFollows == true: #The controls will follow the player
 		Camera.position = lerp(Camera.position, CharBody.position, 0.5)
-#	print(Analog.directionValue)
+		
+	print(Analog.directionValue) #This is the result of the stick movement
 	
 	pass
